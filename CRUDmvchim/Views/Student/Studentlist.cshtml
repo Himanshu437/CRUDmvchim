@@ -1,0 +1,32 @@
+﻿@model List<CRUDmvchim.Context.detail>
+@{
+    ViewBag.Title = "Studentlist";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>E-mail</th>
+        <th>Roll Number</th>
+        <th>Adderess</th>
+        <th>State</th>
+        <th>Mobile Number</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.firstname</td>
+            <td>@item.lastname</td>
+            <td>@item.email</td>
+            <td>@item.rollno</td>
+            <td>@item.student_address</td>
+            <td>@item.student_state</td>
+            <td>@item.mobile</td>
+            <td>
+                <a href="@Url.Action("Student",new {  item.ID,item.firstname, item.lastname, item.email,item.rollno, item.student_address, item.student_state, item.mobile })" class="btn btn-success'">Edit</a>
+                <a href="@Url.Action("Delete",new { item.ID })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

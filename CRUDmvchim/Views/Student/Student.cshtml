@@ -1,0 +1,58 @@
+﻿@model CRUDmvchim.Context.detail
+@{
+    ViewBag.Title = "Student";
+}
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(x=>x.ID)
+            <label>First Name</label>
+            @Html.ValidationMessageFor(x => x.firstname, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.firstname, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            @Html.ValidationMessageFor(x => x.lastname, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.lastname, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>E-mail</label>
+            @Html.ValidationMessageFor(x => x.email, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Roll Number</label>
+            @Html.ValidationMessageFor(x => x.rollno, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.rollno, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            @Html.ValidationMessageFor(x => x.student_address, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.student_address, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            @Html.ValidationMessageFor(x => x.student_state, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.student_state, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Mobile Number</label>
+            @Html.ValidationMessageFor(x => x.mobile, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.mobile, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger">Cancel</button>
+        </div>
+
+
+    </div>
+}
